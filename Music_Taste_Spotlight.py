@@ -8,12 +8,12 @@ import pandas as pd
 import json
 
 #This allows me to read in start and end times for songs if any are chosen, and defaults the rest.
-play_times_path = "Path to excel for start and end times goes here"
+play_times_path = "Path to csv for start and end times goes here"
 times = pd.read_csv(play_times_path)
 times['Start_second'] = times['Start_second'].fillna(0)
 times['Interval_second'] = times['Interval_second'].fillna(58)
 
-#I didn't want my credentials just out in the open, while I knew my friends wouldn't take them, this is just good practice.
+#I didn't want my credentials just out in the open, while I knew my friends wouldn't take them, this is just good practice even if not truly secure.
 def deobfuscate_credentials():
     obfuscated_username, obfuscated_password = get_credentials()
     username = base64.b64decode(obfuscated_username.encode()).decode()

@@ -1,0 +1,62 @@
+,Song,Artist,Start_second,Interval_second,Notes
+0,Kickstart My Heart,Mötley Crüe,,,
+1,Flavor Of The Weak,American Hi-Fi,,,
+2,The Boys Are Back In Town,Thin Lizzy,,,x
+3,"Dear Maria, Count Me In",All Time Low,,66,
+4,Second Chance,Shinedown,14,69,
+5,The Reason,Hoobastank,12,60,
+6,Over You,Daughtry,,,x
+7,Almost,Bowling For Soup,,,x
+8,"Swing, Swing",The All-American Rejects,29,66,could start at  37.5s if we want closer to 1 min song
+9,Love Drunk,BOYS LIKE GIRLS,16.5,63,might need to play around with this one
+10,1985,Bowling For Soup,,79,could start at 8s
+11,Lifestyles of the Rich & Famous,Good Charlotte,8,59,can start at 0 if we don't care about running over 60s
+12,Memory,Sugarcult,,58,if we want to re-claim some time
+13,The Anthem,Good Charlotte,,,could start at 4.5 or 5s if we want more post-chorus
+14,Be My Escape,Relient K,12.5,64,
+16,Paralyzer,Finger Eleven,13.5,64,
+17,Numb,Linkin Park,11,69.5,
+18,In Too Deep,Sum 41,,59,
+19,Face Down,The Red Jumpsuit Apparatus,,,x
+20,Dammit,blink-182,,62,"set to skip right before the chorus, otherwise we can run it longer"
+21,Dirty Little Secret,The All-American Rejects,,59,or just do default if 59 is stupid
+22,High School Never Ends - Main Version - Explicit,Bowling For Soup,5,67,
+23,I Don't Wanna Be In Love (Dance Floor Anthem),Good Charlotte,6,72,
+24,Beverly Hills,Weezer,,58,"again, just do default if this is stupid"
+25,With Arms Wide Open,Creed,12,,hell yeah creed
+26,Rockstar,Nickelback,55,,it's gonna end in a weird spot. no way aorund it
+27,Cut the Cord,Shinedown,20.5,73.5,
+28,The Diary of Jane - Single Version,Breaking Benjamin,20,,
+29,Burn It to the Ground,Nickelback,6,65,
+30,Riot,Three Days Grace,,,x
+31,Miss Murder,AFI,3,64,
+32,Teenagers,My Chemical Romance,,51,"short, but otherwise it's gonna end in a weird spot"
+33,Smells Like Teen Spirit,Nirvana,30,63,
+34,What's My Age Again?,blink-182,6,64,
+36,I'm Just a Kid,Simple Plan,21,65,
+37,Kryptonite,3 Doors Down,19,67,
+39,Mr. Brightside,The Killers,,85,gotta be
+40,Thunderstruck,AC/DC,,,"if we want this to get through the meanest drinking parts, we'll need to make it longer lol"
+41,Girl All the Bad Guys Want,Bowling For Soup,,,
+42,First Date,blink-182,,,x
+44,Girls & Boys,Good Charlotte,,,also in a weird spot where it ends right before the second chorus
+45,American Idiot,Green Day,,59,so it skips right before the F-word
+46,Never Too Late,Three Days Grace,6,,
+47,The Rock Show,blink-182,,,x
+48,When You Were Young,The Killers,11,71,
+49,My Own Worst Enemy,Lit,,,x
+50,"You're Gonna Go Far, Kid",The Offspring,,56.5,
+51,Basket Case,Green Day,,,"91 seconds to get through 2 choruses, otherwise just leave it as is"
+52,I Hate Everything About You,Three Days Grace,11,75,
+53,Misery Business,Paramore,13,64,
+54,Thnks fr th Mmrs,Fall Out Boy,,,x
+55,Fat Lip,Sum 41,,58,
+56,Shut Up!,Simple Plan,4,,
+57,Semi-Charmed Life,Third Eye Blind,,76,
+58,How Far We've Come,Matchbox Twenty,,69,
+59,"Check Yes, Juliet",We The Kings,,,
+60,Teenage Dirtbag,Wheatus,,,
+61,I Write Sins Not Tragedies,Panic! At The Disco,,,
+62,Move Along,The All-American Rejects,,,
+63,Jamie All Over,Mayday Parade,,,
+64,Welcome to the Black Parade,My Chemical Romance,,308,
