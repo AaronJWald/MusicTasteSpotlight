@@ -6,12 +6,16 @@ import base64
 from encoded_credentials import get_credentials
 import pandas as pd
 import json
+import os
 
 #This allows me to read in start and end times for songs if any are chosen, and defaults the rest.
 play_times_path = "Path to csv for start and end times goes here"
-times = pd.read_csv(play_times_path)
-times['Start_second'] = times['Start_second'].fillna(0)
-times['Interval_second'] = times['Interval_second'].fillna(58)
+if os.path.exists(play_times_path):
+    times = pd.read_csv(play_times_path)
+    times['Start_second'] = times['Start_second'].fillna(0)
+    times['Interval_second'] = times['Interval_second'].fillna(58)
+else:
+    times = pd.DataFrame(columns=[['Song','Start_Second','Interval_second']])
 
 #I didn't want my credentials just out in the open, while I knew my friends wouldn't take them, this is just good practice even if not truly secure.
 def deobfuscate_credentials():
@@ -57,6 +61,9 @@ class MusicSpotlight():
                 "client_secret": CLIENT_SECRET}
         r = requests.post(url = query, headers = headers, data = requests_body)
         return r.json()['access_token']
+    
+    def skip_to_next_track(self,sp):
+        sp.next_track()
 
     #Basic method for seeking to a particular second in a song, used later
     @staticmethod
@@ -72,6 +79,8 @@ class MusicSpotlight():
     #seek, which led to songs with loud intro notes to blast them before skipping to the point I actually wanted which was annoying. I couldn't fix the latency so I
     #developed a fade out, which would fade the volume to 0 at the end of the current song, then skip, then set the volume back to the original after the "seek" function.
     #Can't hear the result of the latency if the volume is at 0.
+    #Note worthy: Depending on location and internet speed, fade_volume can also be laggy, causing the fade out, which is intended to be 2 seconds, to be more like
+    #4 or 5. If you want more precise control of start and end times, it may be better to comment out the fade and just set volume to 0, and back to target
     @staticmethod
     def fade_volume(sp, initial_volume, target_volume, fade_duration=2, num_steps=5):
         if initial_volume > 0:
@@ -111,15 +120,11 @@ class MusicSpotlight():
 
     #Originally this was planned to last an hour before I figured out how to refresh my access token, this block manages all the functions above.
     def skip_tracks(self):
-        total_duration = 61 * 60  # 60 seconds * 255 songs
   # 58 seconds
         access_token = self.sp.auth_manager.get_cached_token()['access_token']
-        token1 = access_token
-        for x in range(61):
-            print(self.sp.auth_manager.get_cached_token()['access_token'])            
-            if (x) % 30 == 0:
+        for x in range(61):          
+            if (x) % 55 == 0:
                 access_token = self.refresh()
-                token2 = access_token
          #sends request off to spotify
             headers = {"Authorization": f"Bearer {access_token}"}
             response = requests.get("https://api.spotify.com/v1/me/player/queue", headers=headers)
@@ -146,7 +151,7 @@ class MusicSpotlight():
             #There are some odd numbers here like interval minus 4, all of that is to combat latency and allow for all api calls to resolve.
             current_volume = self.sp.current_playback()['device']['volume_percent']
             self.fade_volume(self.sp, current_volume, 0)
-            self.play_sound_and_skip_track(self.sp, self.sound_file_path, x)
+            self.skip_to_next_track(self.sp)
             self.seek_to_position(self.sp, start_position)
             self.fade_volume(self.sp, 0, current_volume)
             time.sleep(interval - 4)
