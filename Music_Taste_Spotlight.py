@@ -9,7 +9,7 @@ import json
 import os
 
 #This allows me to read in start and end times for songs if any are chosen, and defaults the rest.
-play_times_path = "Path to csv for start and end times goes here"
+play_times_path = "Playlist.csv"
 if os.path.exists(play_times_path):
     times = pd.read_csv(play_times_path)
     times['Start_second'] = times['Start_second'].fillna(0)
@@ -168,5 +168,4 @@ if __name__ == "__main__":
                                                    redirect_uri=REDIRECT_URI,
                                                    scope='user-read-playback-state user-modify-playback-state'))
     
-    # Replace 20 with the desired start position in seconds (0 to start from the beginning)
     MusicSpotlight(sp).skip_tracks()
